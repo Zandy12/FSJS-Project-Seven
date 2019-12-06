@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 
 class Nav extends Component {
 
+    // HREF links return a callback function upon being clicked via the onClick() event handler. 
     render() {
-        // HREF links return a callback function upon being clicked via the onClick() event handler. 
         return (
             <nav className="main-nav">
                 <ul>

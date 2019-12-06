@@ -31,8 +31,8 @@ class App extends Component {
         });
     }
 
+    // Default page layout
     render() {
-        // Default page layout
         return(
             <div className="container">
                 <SearchForm onSearch={this.performSearch} />
