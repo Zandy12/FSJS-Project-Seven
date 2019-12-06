@@ -50,7 +50,7 @@ input {
   margin-bottom: 1em;
 }
 
-.main-nav a {
+.main-nav a, .custom {
   display: block;
   background: #438bbd;
   border-radius: 3px;

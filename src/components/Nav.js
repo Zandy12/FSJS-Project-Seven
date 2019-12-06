@@ -7,18 +7,18 @@ class Nav extends Component {
         return (
             <nav className="main-nav">
                 <ul>
-                    <li><a href="#" onClick={(e) => {
+                    <li><button className="custom" onClick={(e) => {
                         e.preventDefault();
                         this.props.onSearch('fields');
-                    }}>Fields</a></li>
-                    <li><a href="#" onClick={(e) => {
+                    }}>Fields</button></li>
+                    <li><button className="custom" href="#" onClick={(e) => {
                         e.preventDefault();
                         this.props.onSearch('skies');
-                    }}>Skies</a></li>
-                    <li><a href="#" onClick={(e) => {
+                    }}>Skies</button></li>
+                    <li><button className="custom" href="#" onClick={(e) => {
                         e.preventDefault();
                         this.props.onSearch('stars');
-                    }}>Stars</a></li>
+                    }}>Stars</button></li>
                 </ul>
             </nav>
         );
