@@ -20,12 +20,13 @@ class Searchform extends Component {
     // Clears te search form and performs "this.performSearch" through "this.props.onSearch" while passing the submitted search value.
     handleSubmit(e) {
         e.preventDefault();
-        this.props.onSearch(this.query.value);
+        this.props.secondOnChange(this.query.value);
         e.currentTarget.reset();
     }
 
     // Renders the form contents and svg provided by www.teamtreehouse.com for the project.
     render() {
+
         return(
             <form className="search-form" onSubmit={this.handleSubmit} >
                 <input id="search" type="search" name="search" placeholder="Search" onChange={this.onSearchChange} ref={(input) => this.query = input} required/>

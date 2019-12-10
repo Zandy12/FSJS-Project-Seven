@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 class Nav extends Component {
 
     // HREF links return a callback function upon being clicked via the onClick() event handler. 
@@ -9,15 +10,15 @@ class Nav extends Component {
                 <ul>
                     <li><button className="custom" onClick={(e) => {
                         e.preventDefault();
-                        this.props.onSearch('fields');
+                        this.props.secondOnChange('fields');
                     }}>Fields</button></li>
                     <li><button className="custom" href="#" onClick={(e) => {
                         e.preventDefault();
-                        this.props.onSearch('skies');
+                        this.props.secondOnChange('skies');
                     }}>Skies</button></li>
                     <li><button className="custom" href="#" onClick={(e) => {
                         e.preventDefault();
-                        this.props.onSearch('stars');
+                        this.props.secondOnChange('stars');
                     }}>Stars</button></li>
                 </ul>
             </nav>

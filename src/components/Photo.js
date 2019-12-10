@@ -9,7 +9,7 @@ const Photo = props => {
     // photosArray is mapped out with queried data if the Flickr API returns a result value greater than 1. 
     if (results.length > 0) {
       photosArray = results.map(photo =>
-        <Photos url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id}/>
+        <Photos url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} query={props.query} />
       );
     } else {
       photosArray = <NotFound />
