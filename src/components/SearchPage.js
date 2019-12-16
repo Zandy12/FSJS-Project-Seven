@@ -12,6 +12,7 @@ class SearchPage extends Component {
         this.state = {
             // "photos" will receive and parse all json data from the Flickr API into objects and properties.
             photos: [],
+            loading: true,
             query: this.props.query
         };
         this.performSearch = this.performSearch.bind(this);
@@ -28,6 +29,7 @@ class SearchPage extends Component {
             .then(res => {
             this.setState({
                 photos: res.photos.photo,
+                loading: false
             });
             })
             // This will log an error if there was an issue fetching the data from flickr API.
@@ -48,7 +50,9 @@ class SearchPage extends Component {
             <div className="container">
                 <SearchForm secondOnChange={this.changeSearchPageQuery} />
                 <Nav secondOnChange={this.changeSearchPageQuery} />
-                <Photo data={this.state.photos} query={this.state.query} />
+                {
+                    (this.state.loading) ? <p>Loading...</p> : <Photo data={this.state.photos} query={this.state.query} />
+                }
             </div>
         );
     }
