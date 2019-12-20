@@ -23,7 +23,7 @@ class App extends Component {
 
     componentDidMount() {
         this.performSearch();
-    }
+    } 
 
     performSearch = (query = 'cars') => {
             // Fetch API
@@ -41,15 +41,18 @@ class App extends Component {
         });*/
             // Axios 
             axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=16&format=json&nojsoncallback=1`)
-			.then(res =>
-				this.setState({
-                    photos: res.data.photos.photo,
-                    loading: false
-				})
+            .then(res => {
+                    if (!this.state.loaded) {
+                        this.setState({
+                            photos: res.data.photos.photo,
+                            loading: false,
+                        })
+                    }
+                }
 			)
 			.catch(error => {
 				console.log("Error fetching and parsing data", error);
-		});
+        });
     }
 
     // Default page layout
@@ -61,7 +64,7 @@ class App extends Component {
                     <SearchForm />
                     <Nav />
                     {(this.state.loading) ? <Route exact path="/" render={ () => <p>Loading...</p> } /> : <Route exact path="/" render={ () => <PhotoContainer onChange={this.performSearch} data={this.state.photos} /> } />} 
-                    <Route path="/:query" render={ ({match}) => <PhotoContainer query={match.params.query} onChange={this.performSearch} data={this.state.photos} /> } />
+                    {(this.state.loading) ? <Route exact path="/:query" render={ () => <p>Loading...</p> } /> :  <Route path="/:query" render={ ({match}) => <PhotoContainer query={match.params.query} onChange={this.performSearch} data={this.state.photos} /> } />}
                 </div>
                 {/*This code is old and is no longer being used. It is here for reference only.*/}
                 {/*<Redirect from="/" to={`/?search=${this.state.query}`} />*/}

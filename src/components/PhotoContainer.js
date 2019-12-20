@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Photo from './Photo';
 import NotFound from './NotFound';
 
 const PhotoContainer = (props) => {
 
-  props.onChange(props.query);
+  useEffect(() => {
+    props.onChange(props.query);
+    // The following code below is used to disable a dependency error that arises due to performSearch() existing outside of useEffect().
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[props.query]);
 
   const results = props.data;
   let photosArray;
@@ -16,6 +20,8 @@ const PhotoContainer = (props) => {
   } else {
     photosArray = <NotFound />
   }
+
+  //console.log(props);
 
   // Format for URL in JSX markup
   //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
