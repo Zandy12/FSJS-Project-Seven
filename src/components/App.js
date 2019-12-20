@@ -25,7 +25,7 @@ class App extends Component {
         this.performSearch();
     } 
 
-    performSearch = (query = 'cars') => {
+    performSearch = (query) => {
             // Fetch API
             /* fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=16&format=json&nojsoncallback=1`)
             .then(res => res.json())
