@@ -1,3 +1,4 @@
+// NOTE: This page is no longer being used and is obsolete for the main project. It is only here for reference only. Do not count this!
 import React, {Component} from 'react';
 
 import SearchForm from './SearchForm';
@@ -35,7 +36,6 @@ class SearchPage extends Component {
             // This will log an error if there was an issue fetching the data from flickr API.
             .catch(error => {
             console.log("Error fetching and parsing data", error);
-            this.setState({found: true});
         });
     }
 

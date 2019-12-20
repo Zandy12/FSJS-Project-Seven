@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Searchform extends Component {
 
@@ -20,7 +21,7 @@ class Searchform extends Component {
     // Clears te search form and performs "this.performSearch" through "this.props.onSearch" while passing the submitted search value.
     handleSubmit(e) {
         e.preventDefault();
-        this.props.secondOnChange(this.query.value);
+        this.props.history.push(`/${this.query.value}`);
         e.currentTarget.reset();
     }
 
@@ -41,5 +42,5 @@ class Searchform extends Component {
     }
 }
 
-export default Searchform;
+export default withRouter(Searchform);
 

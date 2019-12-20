@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 class Nav extends Component {
@@ -8,18 +9,9 @@ class Nav extends Component {
         return (
             <nav className="main-nav">
                 <ul>
-                    <li><button className="custom" onClick={(e) => {
-                        e.preventDefault();
-                        this.props.secondOnChange('fields');
-                    }}>Fields</button></li>
-                    <li><button className="custom" href="#" onClick={(e) => {
-                        e.preventDefault();
-                        this.props.secondOnChange('skies');
-                    }}>Skies</button></li>
-                    <li><button className="custom" href="#" onClick={(e) => {
-                        e.preventDefault();
-                        this.props.secondOnChange('stars');
-                    }}>Stars</button></li>
+                    <li><NavLink to="/fields">Fields</NavLink></li>
+                    <li><NavLink to="/skies">Skies</NavLink></li>
+                    <li><NavLink to="/stars">Stars</NavLink></li>
                 </ul>
             </nav>
         );
